@@ -16,6 +16,4 @@ UNITE-COVID curation team (on behalf of the ESICM UNITE-COVID consortium)
 - Thomas De Corte (Universiteit Gent: Gent, BE) ORCID: 0000-0001-5011-6640
 - Massimiliano Greco (Humanitas University, Rozzano, IT) ORCID: 0000-0003-1003-4637
 
-
-
-Version 1.0 23/3/2021
+Version 1.0 published 23/3/2021
