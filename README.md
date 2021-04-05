@@ -1,5 +1,5 @@
 # UNITE-COVID data curation notebook (R-Kernel)
-## Version 2.0  30/3/2021
+## Version 2.1  05/04/2021
 
 This describes the curation process. We use the finalised dataset "UNITE_COVID_19_global_export-1Dec2020 CSV.csv" 
 as the source data / master dataframe. The working dataframe is 'working.df' and is updated by the curation script.
@@ -25,3 +25,9 @@ Add data file as "./data/UNITE_COVID_19_global_export-1Dec2020.csv"
 Dictionaries are in "./dictionaries"
 
 Then source the current pipline and execute the function get_data() which returns the curated dataset as a dataframe
+
+I.e.:
+```
+source("curation_pipeline_version_2_1.R")
+data.df <- get_data()
+```
