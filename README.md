@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/350698676.svg)](https://zenodo.org/badge/latestdoi/350698676)
+
 # UNITE-COVID data curation notebook (R-Kernel)
 ## Version 2.1  05/04/2021
 
