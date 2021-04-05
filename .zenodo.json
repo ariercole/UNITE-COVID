@@ -1,0 +1,45 @@
+{
+    "description": "<p>Initial release to UNITE-COVID investigators</p>", 
+    "license": "other-open", 
+    "title": "ariercole/UNITE-COVID: Version 2.1 release", 
+    "version": "v2.1", 
+    "upload_type": "software", 
+    "publication_date": "2021-04-05", 
+    "creators": [
+        {
+            "affiliation": "Amsterdam UMC",
+            "name": "Paul W Elbers"
+        },
+	{
+            "affiliation": "VU University Medical Center",
+            "name": "Harm-Jan de Grooth"
+
+	},
+	{
+            "affiliation": "Universiteit Gent",
+            "name": "Thomas De Corte"
+
+	},
+	{
+            "affiliation": "Humanitas University",
+            "name": "Massimiliano Greco"
+	},
+	{
+            "affiliation": "University of Cambridge",
+            "name": "Ari Ercole"
+	}
+    ], 
+    "access_right": "open", 
+    "related_identifiers": [
+        {
+            "scheme": "url", 
+            "identifier": "https://github.com/ariercole/UNITE-COVID/tree/v2.1", 
+            "relation": "isSupplementTo"
+        }, 
+        {
+            "scheme": "doi", 
+            "identifier": "10.5281/zenodo.4662577", 
+            "relation": "isVersionOf"
+        }
+    ]
+}
