@@ -1,7 +1,7 @@
 [![DOI](https://zenodo.org/badge/350698676.svg)](https://zenodo.org/badge/latestdoi/350698676)
 
 # UNITE-COVID data curation notebook (R-Kernel)
-## Version 2.2.2  08/04/2021
+## Version 2.2.2  09/04/2021
 
 This describes the curation process. We use the finalised dataset "UNITE_COVID_19_global_export-1Dec2020 CSV.csv" 
 as the source data / master dataframe. The working dataframe is 'working.df' and is updated by the curation script.
