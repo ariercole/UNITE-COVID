@@ -627,7 +627,7 @@ working.df$ICU_INOTROPE_DURATION_INT <- as.character(working.df$ICU_INOTROPE_DUR
 working.df$ICU_INOTROPE_DURATION_INT <- as.numeric(with(working.df, 
                                                    ifelse(ICU_INOTROPE_DURATION_INT %in% c("ND", ""), NA, 
                                                           ICU_INOTROPE_DURATION_INT)))
-working.df$ICU_RRT_DURATION_INT <- as.numeric(with(working.df, 
+working.df$ICU_INOTROPE_DURATION_INT <- as.numeric(with(working.df, 
                                                    ifelse(ICU_INOTROPES_YN==FALSE | is.na(ICU_INOTROPES_YN), NA, 
                                                           ICU_INOTROPE_DURATION_INT)))
 
