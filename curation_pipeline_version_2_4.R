@@ -733,6 +733,17 @@ working.df$RESP_INTUB_DAYS_AFT_ADM_INT <- ifelse(working.df$RESP_INTUB_DAYS_AFT_
 working.df$RESP_INTUB_DAYS_AFT_ADM_INT <- ifelse(working.df$RESP_INTUB_DAYS_AFT_ADM_INT == "ND", NA, working.df$RESP_INTUB_DAYS_AFT_ADM_INT)
 working.df$RESP_INTUB_DAYS_AFT_ADM_INT <- as.numeric(working.df$RESP_INTUB_DAYS_AFT_ADM_INT)
 
+## Inconsistency curation RESP_INTUBATED_YN & RESP_INTUBATED_ICU_YN & RESP_INTUBATED_DAYS_AFT_ADM_INT
+working.df$RESP_INTUBATED_YN[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE & is.na(working.df$RESP_INTUB_DAYS_AFT_ADM_INT)] <- TRUE
+working.df$RESP_INTUBATED_ICU_STAY_YN[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE & is.na(working.df$RESP_INTUB_DAYS_AFT_ADM_INT)] <- FALSE
+working.df$RESP_INTUBATED_YN[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE & working.df$RESP_INTUB_DAYS_AFT_ADM_INT >= 0] <- FALSE
+working.df$RESP_INTUBATED_ICU_STAY_YN[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE & working.df$RESP_INTUB_DAYS_AFT_ADM_INT >= 0] <- TRUE
+working.df$RESP_INTUBATED_YN[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == FALSE & working.df$RESP_INTUB_DAYS_AFT_ADM_INT >=0] <- TRUE
+working.df$RESP_INTUB_DAYS_AFT_ADM_INT[working.df$RESP_INTUBATED_YN == TRUE & working.df$RESP_INTUBATED_ICU_STAY_YN == FALSE & working.df$RESP_INTUB_DAYS_AFT_ADM_INT >=0] <- NA
+    
+    
+    
+    
 
 #RESP_NI_VENT_YN "2"=unknown recoded as NA since same meaning.
 working.df$RESP_NI_VENT_YN <- as.factor(with(working.df, 
