@@ -287,41 +287,48 @@ working.df$ICU_SUPP_TYPE_RAD <- as.factor(working.df$ICU_SUPP_TYPE_RAD)
 # Only if HFNC, CPAP or NIV
 # In hours
 # Integer
+working.df$ICU_SUPP_DURATION_INT <- as.character(working.df$ICU_SUPP_DURATION_INT)
 working.df$ICU_SUPP_DURATION_INT <- ifelse(working.df$ICU_SUPP_DURATION_INT == 'ND', NA, working.df$ICU_SUPP_DURATION_INT)
 working.df$ICU_SUPP_DURATION_INT <- as.numeric(working.df$ICU_SUPP_DURATION_INT)
 
 #ICU_WHITE_CELL_INT
+working.df$ICU_WHITE_CELL_INT <- as.character(working.df$ICU_WHITE_CELL_INT)
 working.df$ICU_WHITE_CELL_INT <- ifelse(working.df$ICU_WHITE_CELL_INT == '', NA, working.df$ICU_WHITE_CELL_INT)
 working.df$ICU_WHITE_CELL_INT <- ifelse(working.df$ICU_WHITE_CELL_INT == 'ND', NA, working.df$ICU_WHITE_CELL_INT)
 working.df$ICU_WHITE_CELL_INT <- ifelse(as.numeric(working.df$ICU_WHITE_CELL_INT) >100, as.numeric(working.df$ICU_WHITE_CELL_INT)/1000, working.df$ICU_WHITE_CELL_INT)
 working.df$ICU_WHITE_CELL_INT <- as.numeric(working.df$ICU_WHITE_CELL_INT)
 
 #ICU_TEMPERATURE_DEC
+working.df$ICU_TEMPERATURE_DEC <- as.character(working.df$ICU_TEMPERATURE_DEC)
 working.df$ICU_TEMPERATURE_DEC <- ifelse(working.df$ICU_TEMPERATURE_DEC == '', NA, working.df$ICU_TEMPERATURE_DEC)
 working.df$ICU_TEMPERATURE_DEC <- ifelse(working.df$ICU_TEMPERATURE_DEC == 'ND', NA, working.df$ICU_TEMPERATURE_DEC)
-working.df$ICU_TEMPERATURE_DEC <- ifelse(as.numeric(working.df$ICU_TEMPERATURE_DEC) <25, NA, working.df$ICU_TEMPERATURE_DEC)
-working.df$ICU_TEMPERATURE_DEC <- ifelse(as.numeric(working.df$ICU_TEMPERATURE_DEC) >45, NA, working.df$ICU_TEMPERATURE_DEC)
+working.df$ICU_TEMPERATURE_DEC <- ifelse(as.numeric(working.df$ICU_TEMPERATURE_DEC) <30, NA, working.df$ICU_TEMPERATURE_DEC)
+working.df$ICU_TEMPERATURE_DEC <- ifelse(as.numeric(working.df$ICU_TEMPERATURE_DEC) >50, NA, working.df$ICU_TEMPERATURE_DEC)
 working.df$ICU_TEMPERATURE_DEC <- as.numeric(working.df$ICU_TEMPERATURE_DEC)
 
 #ICU_NEUTRO_INT
+working.df$ICU_NEUTRO_INT <- as.character(working.df$ICU_NEUTRO_INT)
 working.df$ICU_NEUTRO_INT <- ifelse(working.df$ICU_NEUTRO_INT == '', NA, working.df$ICU_NEUTRO_INT)
 working.df$ICU_NEUTRO_INT <- ifelse(working.df$ICU_NEUTRO_INT == 'ND', NA, working.df$ICU_NEUTRO_INT)
 working.df$ICU_NEUTRO_INT <- ifelse(as.numeric(working.df$ICU_NEUTRO_INT) >100, as.numeric(working.df$ICU_NEUTRO_INT)/1000, working.df$ICU_NEUTRO_INT)
 working.df$ICU_NEUTRO_INT <-as.numeric(working.df$ICU_NEUTRO_INT)
 
 #ICU_CRP_INT
+working.df$ICU_CRP_INT <- as.character(working.df$ICU_CRP_INT)
 working.df$ICU_CRP_INT <- ifelse(working.df$ICU_CRP_INT == '', NA, working.df$ICU_CRP_INT)
 working.df$ICU_CRP_INT <- ifelse(working.df$ICU_CRP_INT == 'ND', NA, working.df$ICU_CRP_INT)
 working.df$ICU_CRP_INT <- ifelse(as.numeric(working.df$ICU_CRP_INT) >800, as.numeric(working.df$ICU_CRP_INT)/1000, working.df$ICU_CRP_INT)
 working.df$ICU_CRP_INT <- as.numeric(working.df$ICU_CRP_INT)    
 
 #ICU_LYMPH_DEC
+working.df$ICU_LYMPH_DEC <- as.character(working.df$ICU_LYMPH_DEC)
 working.df$ICU_LYMPH_DEC <- ifelse(working.df$ICU_LYMPH_DEC == '', NA, working.df$ICU_LYMPH_DEC)
 working.df$ICU_LYMPH_DEC <- ifelse(working.df$ICU_LYMPH_DEC == 'ND', NA, working.df$ICU_LYMPH_DEC)
 working.df$ICU_LYMPH_DEC <- ifelse(as.numeric(working.df$ICU_LYMPH_DEC) >50, as.numeric(working.df$ICU_LYMPH_DEC)/1000, working.df$ICU_LYMPH_DEC)
 working.df$ICU_LYMPH_DEC <- as.numeric(working.df$ICU_LYMPH_DEC)    
 
 #ICU_PRO_CALCIT_DEC
+working.df$ICU_PRO_CALCIT_DEC <- as.character(working.df$ICU_PRO_CALCIT_DEC)
 working.df$ICU_PRO_CALCIT_DEC <- ifelse(working.df$ICU_PRO_CALCIT_DEC == '', NA, working.df$ICU_PRO_CALCIT_DEC)
 working.df$ICU_PRO_CALCIT_DEC <- ifelse(working.df$ICU_PRO_CALCIT_DEC == 'ND', NA, working.df$ICU_PRO_CALCIT_DEC)
 working.df$ICU_PRO_CALCIT_DEC <- ifelse(as.numeric(working.df$ICU_PRO_CALCIT_DEC) >20, NA, working.df$ICU_PRO_CALCIT_DEC)
@@ -330,11 +337,14 @@ working.df$ICU_PRO_CALCIT_DEC <- as.numeric(working.df$ICU_PRO_CALCIT_DEC)
     
 #ICU_FERRITINE_INT
 # I am unsure about the window
+working.df$ICU_FERRITINE_INT <- as.character(working.df$ICU_FERRITINE_INT)
 working.df$ICU_FERRITINE_INT <- ifelse(working.df$ICU_FERRITINE_INT == '', NA, working.df$ICU_FERRITINE_INT)
+#working.df$ICU_FERRITINE_INT <- ifelse(working.df$ICU_FERRITINE_INT == 0.0, NA, working.df$ICU_FERRITINE_INT)
 working.df$ICU_FERRITINE_INT <- ifelse(working.df$ICU_FERRITINE_INT == 'ND', NA, working.df$ICU_FERRITINE_INT)
 working.df$ICU_FERRITINE_INT <- as.numeric(working.df$ICU_FERRITINE_INT)
     
 #ICU_HS_TROPONIN_DEC
+working.df$ICU_HS_TROPONIN_DEC <- as.character(working.df$ICU_HS_TROPONIN_DEC)
 working.df$ICU_HS_TROPONIN_DEC <- ifelse(working.df$ICU_HS_TROPONIN_DEC == '', NA, working.df$ICU_HS_TROPONIN_DEC)
 working.df$ICU_HS_TROPONIN_DEC <- ifelse(working.df$ICU_HS_TROPONIN_DEC == 'ND', NA, working.df$ICU_HS_TROPONIN_DEC)
 working.df$ICU_HS_TROPONIN_DEC <- ifelse(as.numeric(working.df$ICU_HS_TROPONIN_DEC) >100, NA, working.df$ICU_HS_TROPONIN_DEC)
@@ -342,15 +352,17 @@ working.df$ICU_HS_TROPONIN_DEC <- as.numeric(working.df$ICU_HS_TROPONIN_DEC)
 
 #ICU_FIBRIN_DEC
 #fibrinogen (!)
-#working.df$ICU_FIBRIN_DEC <- ifelse(working.df$ICU_FIBRIN_DEC == '', NA, working.df$ICU_FIBRIN_DEC)
-#working.df$ICU_FIBRIN_DEC <- ifelse(working.df$ICU_FIBRIN_DEC == 'ND', NA, working.df$ICU_FIBRIN_DEC)
-#working.df$ICU_FIBRIN_DEC <- ifelse(as.numeric(working.df$ICU_FIBRIN_DEC) >15, NA, working.df$ICU_FIBRIN_DEC)
+working.df$ICU_FIBRIN_DEC <- as.character(working.df$ICU_FIBRIN_DEC)
+working.df$ICU_FIBRIN_DEC <- ifelse(working.df$ICU_FIBRIN_DEC == '', NA, working.df$ICU_FIBRIN_DEC)
+working.df$ICU_FIBRIN_DEC <- ifelse(working.df$ICU_FIBRIN_DEC == 'ND', NA, working.df$ICU_FIBRIN_DEC)
+working.df$ICU_FIBRIN_DEC <- ifelse(as.numeric(working.df$ICU_FIBRIN_DEC) >15, NA, working.df$ICU_FIBRIN_DEC)
 working.df$ICU_FIBRIN_DEC <- as.numeric(working.df$ICU_FIBRIN_DEC)
 
 
 
 
 #ICU_APTT_INT
+working.df$ICU_APTT_INT <- as.character(working.df$ICU_APTT_INT)
 working.df$ICU_APTT_INT <- ifelse(working.df$ICU_APTT_INT == '', NA, working.df$ICU_APTT_INT)
 working.df$ICU_APTT_INT <- ifelse(working.df$ICU_APTT_INT == 'ND', NA, working.df$ICU_APTT_INT)
 working.df$ICU_APTT_INT <- ifelse(as.numeric(working.df$ICU_APTT_INT) >570, NA, working.df$ICU_APTT_INT)
@@ -358,18 +370,21 @@ working.df$ICU_APTT_INT <- as.numeric(working.df$ICU_APTT_INT)
 
 #ICU_DIMERS_INT
 # I am unsure about the window
+working.df$ICU_DIMERS_INT <- as.character(working.df$ICU_DIMERS_INT)
 working.df$ICU_DIMERS_INT <- ifelse(working.df$ICU_DIMERS_INT == '', NA, working.df$ICU_DIMERS_INT)
 working.df$ICU_DIMERS_INT <- ifelse(working.df$ICU_DIMERS_INT == 'ND', NA, working.df$ICU_DIMERS_INT)
 working.df$ICU_DIMERS_INT <- ifelse(as.numeric(working.df$ICU_DIMERS_INT) >100000, NA, working.df$ICU_DIMERS_INT)
 working.df$ICU_DIMERS_INT <- as.numeric(working.df$ICU_DIMERS_INT)    
 
 #ICU_PLATELETS_INT
+working.df$ICU_PLATELETS_INT <- as.character(working.df$ICU_PLATELETS_INT)
 working.df$ICU_PLATELETS_INT <- ifelse(working.df$ICU_PLATELETS_INT == '', NA, working.df$ICU_PLATELETS_INT)
 working.df$ICU_PLATELETS_INT <- ifelse(working.df$ICU_PLATELETS_INT == 'ND', NA, working.df$ICU_PLATELETS_INT)
 working.df$ICU_PLATELETS_INT <- ifelse(as.numeric(working.df$ICU_PLATELETS_INT) >2000, NA, working.df$ICU_PLATELETS_INT)
 working.df$ICU_PLATELETS_INT <- as.numeric(working.df$ICU_PLATELETS_INT)    
 
 #ICU_PROTHROMB_INT
+working.df$ICU_PROTHROMB_INT <- as.character(working.df$ICU_PROTHROMB_INT)
 working.df$ICU_PROTHROMB_INT <- ifelse(working.df$ICU_PROTHROMB_INT == '', NA, working.df$ICU_PROTHROMB_INT)
 working.df$ICU_PROTHROMB_INT <- ifelse(working.df$ICU_PROTHROMB_INT == 'ND', NA, working.df$ICU_PROTHROMB_INT)
 working.df$ICU_PROTHROMB_INT <- ifelse(as.numeric(working.df$ICU_PROTHROMB_INT) >370, NA, working.df$ICU_PROTHROMB_INT)
