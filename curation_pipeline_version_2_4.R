@@ -1669,6 +1669,31 @@ antiplatelet_freetext.df <- read.csv('./dictionaries/antiplatelet_freetext_dicti
 get_dose <- antiplatelet_freetext.df$antiplatelet_mg_day
 names(get_dose) <- antiplatelet_freetext.df$COAG_ANTIPLAT_DOSE_TXT
 working.df$NEW_COAG_ANTIPLAT_DAILY_DOSE <- as.numeric(unname(get_dose[working.df$COAG_DVT_DOSE_TXT]))
+
+
+
+######### INCONCISTENCY RESOLUTION ###########
+# Deal with inconsistencies between intubated patients denoted as not being invasively ventilated
+working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_YN == TRUE] <- TRUE
+working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE] <- TRUE
+working.df$RESP_INV_VENT_YN[is.na(working.df$RESP_INV_VENT_YN) & working.df$RESP_MODE_RAD == 'PCV' & working.df$RESP_PEEP_INT == 14 & working.df$RESP_DRIV_PRESS_INT == 26] <- TRUE
+
+# Deal with inconsistencies between not intubated patients at admisison or during ICU stay and invasive ventilation
+working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_YN == FALSE & working.df$RESP_INTUBATED_ICU_STAY_YN == FALSE & is.na(working.df$RESP_INV_VENT_YN)] <- FALSE
+
+
+# Deal with inconsistencies between invasive ventilated dependent variables and patients who were not invasively ventilated.
+working.df$RESP_PRONE_INTUB_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_MODE_RAD[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_PEEP_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_TIDAL_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_FIO2_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_PF_RATIO_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_PACO2_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_DRIV_PRESS_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_VENT_ROUTINE_YN[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+working.df$RESP_REINTUBATED_YN[working.df$RESP_INV_VENT_YN == FALSE] <- NA
+
    
 return(working.df)
 }
