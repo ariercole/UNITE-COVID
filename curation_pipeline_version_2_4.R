@@ -1672,7 +1672,7 @@ working.df$NEW_COAG_ANTIPLAT_DAILY_DOSE <- as.numeric(unname(get_dose[working.df
 # Deal with inconsistencies between intubated patients denoted as not being invasively ventilated
 working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_YN == TRUE] <- TRUE
 working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_ICU_STAY_YN == TRUE] <- TRUE
-working.df$RESP_INV_VENT_YN[is.na(working.df$RESP_INV_VENT_YN) & working.df$RESP_MODE_RAD == 'PCV' & working.df$RESP_PEEP_INT == 14 & working.df$RESP_DRIV_PRESS_INT == 26] <- TRUE
+working.df$RESP_INV_VENT_YN[working.df$NEW_COUNTRY_ID == '32' & working.df$NEW_SITE_ID == '05' & working.df$NEW_SUBJECT_ID == '02'] <- TRUE
 
 # Deal with inconsistencies between not intubated patients at admisison or during ICU stay and invasive ventilation
 working.df$RESP_INV_VENT_YN[working.df$RESP_INTUBATED_YN == FALSE & working.df$RESP_INTUBATED_ICU_STAY_YN == FALSE & is.na(working.df$RESP_INV_VENT_YN)] <- FALSE
