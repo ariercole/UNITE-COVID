@@ -1694,6 +1694,10 @@ working.df$RESP_DRIV_PRESS_INT[working.df$RESP_INV_VENT_YN == FALSE] <- NA
 working.df$RESP_VENT_ROUTINE_YN[working.df$RESP_INV_VENT_YN == FALSE] <- NA
 working.df$RESP_REINTUBATED_YN[working.df$RESP_INV_VENT_YN == FALSE] <- NA
 
+# Deal with inconsistencies between invasive ventilation and ECMO based on info provided by the relevant centres + exclude 1 patient
+working.df$RESP_INV_VENT_YN[working.df$NEW_COUNTRY_ID == '11' & working.df$NEW_SITE_ID == '06' & working.df$NEW_SUBJECT_ID == '25'] <- TRUE
+working.df$RESP_ECMO_YN[working.df$NEW_COUNTRY_ID == '25' & working.df$NEW_SITE_ID == '02' & working.df$NEW_SUBJECT_ID == '08'] <- FALSE
+working.df <- working.df[!(working.df$NEW_COUNTRY_ID=='16' & working.df$NEW_SITE_ID == '08' & working.df$NEW_SUBJECT_ID =='06'),]
    
 return(working.df)
 }
