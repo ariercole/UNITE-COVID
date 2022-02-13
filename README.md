@@ -1,7 +1,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5804973.svg)](https://doi.org/10.5281/zenodo.5804973)
 
 # UNITE-COVID data curation notebook (R-Kernel)
-## Version 3.0  26/12/2021
+## Version 3.1  13/02/2022
 
 Please cite curation pipeline as Ercole A, Elbers PW, de Grooth H_J, De Corte T, Greco M. 2021 UNITE-COVID data curation pipeline. v3.0. Zenodo DOI 10.5281/zenodo.5804973
 
