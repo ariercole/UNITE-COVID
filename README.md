@@ -33,7 +33,7 @@ Then source the current pipline and execute the function get_data() which return
 
 I.e.:
 ```
-source("curation_pipeline_version_2_3.R")
+source("curation_pipeline_version_3_1.R")
 data.df <- get_data()
 ```
 
