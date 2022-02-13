@@ -14,7 +14,7 @@
 #- Andrea Lavinio (Cambridge University Hospitals NHS Foundation Trust: Cambridge, GB)
 
 
-#Version 3.0 26/12/2021
+#Version 3.1 13/02/2022
 
 library(tidyverse)
 
@@ -101,7 +101,7 @@ working.df$INC_HELTH_WORK_YN <- as.factor(with(working.df,
 #INC_PREGNANT_YN
 working.df$INC_PREGNANT_YN <- as.factor(with(working.df, 
                                             ifelse(INC_PREGNANT_YN==0, FALSE, 
-                                                   ifelse(INC_PREGNANT_YN==1, TRUE, NA))))
+                                                   ifelse(INC_PREGNANT_YN==1, TRUE, 0))))
 
 
 #INC_LOS_PRIOR_ADM_INT
